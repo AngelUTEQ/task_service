@@ -7,7 +7,8 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-AUTH_SERVICE_URL = "http://127.0.0.1:5001/validate_token"
+AUTH_SERVICE_URL = "https://auth-service1-2.onrender.com/validate_token"
+
 
 def token_required(f):
     @wraps(f)
@@ -276,4 +277,5 @@ def health():
 
 if __name__ == '__main__':
     init_db()
+
     app.run(host="0.0.0.0", port=5003, debug=True)
